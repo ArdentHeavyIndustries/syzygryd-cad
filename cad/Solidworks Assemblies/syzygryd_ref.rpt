@@ -1,0 +1,60 @@
+*****************************************************************
+      SolidWorks Corporation - IGES Processor Status Report
+*****************************************************************
+=================================================================
+General Information
+=================================================================
+Sending System Product I.D.  : 
+Receiving System Product I.D.: 
+File Name                    : /Users/mikest/syzygryd/cad/Solidworks Assemblies/syzygryd_ref.igs
+Sending System               : Rhinoceros ( Mar 27 2010 )
+Preprocessor Version         : Trout Lake IGES 012 Mar 27 2010
+File Creation Date           : 100430.014253
+Model Creation Date          : 100430.014253
+Units                        : INCH
+Model Space Scale            : 1
+Author                       : 
+Organization                 : 
+
+
+=================================================================
+Entity Processing Information
+=================================================================
+
+
+=================================================================
+Precision analysis of IGES file:
+=================================================================
+  Most prevalent number of significant digits:              14
+  Highest number of significant digits:                     14
+  Average number of significant digits:                13.1254
+  Maximum distance to origin:                          574.258
+  Minimum distance to origin:                                0
+  Effective number of significant digits:                   14
+
+
+=================================================================
+Entity Summary
+=================================================================
+-----------------------------------------------------------------
+Type Name                                         Count Converted
+---- ----                                         ----- ---------
+116  Point                                          122       122
+126  Rational B-spline curve                         61        61
+314  Color definition                                15        15
+406  Property                                        49        49
+_________________________________________________________________
+
+
+=================================================================
+Result Summary
+=================================================================
+SolidWorks Feature Type                Count
+-----------------------                -----
+Solid feature(s)                       0
+Surface feature(s)                     0
+Curve/Sketch feature(s)                183
+--------------------------------------------
+Start time: Thursday, April 29, 2010 18:43:05
+Finish time: Thursday, April 29, 2010 18:43:07
+Processing time: 0 days, 00 hours, 00 mins, 02 secs
