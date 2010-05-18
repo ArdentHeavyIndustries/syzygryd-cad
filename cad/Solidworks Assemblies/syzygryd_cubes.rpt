@@ -1,0 +1,63 @@
+*****************************************************************
+      SolidWorks Corporation - IGES Processor Status Report
+*****************************************************************
+=================================================================
+General Information
+=================================================================
+Sending System Product I.D.  : 
+Receiving System Product I.D.: 
+File Name                    : /Users/mikest/syzygryd/cad/Solidworks Assemblies/syzygryd_cubes.igs
+Sending System               : Rhinoceros ( Mar 27 2010 )
+Preprocessor Version         : Trout Lake IGES 012 Mar 27 2010
+File Creation Date           : 100430.222117
+Model Creation Date          : 100430.222117
+Units                        : INCH
+Model Space Scale            : 1
+Author                       : 
+Organization                 : 
+
+
+=================================================================
+Entity Processing Information
+=================================================================
+
+
+=================================================================
+Precision analysis of IGES file:
+=================================================================
+  Most prevalent number of significant digits:              14
+  Highest number of significant digits:                     14
+  Average number of significant digits:                13.8365
+  Maximum distance to origin:                          434.928
+  Minimum distance to origin:                                0
+  Effective number of significant digits:                   14
+
+
+=================================================================
+Entity Summary
+=================================================================
+-----------------------------------------------------------------
+Type Name                                         Count Converted
+---- ----                                         ----- ---------
+102  Composite curve                                136       136
+126  Rational B-spline curve                        828       828
+128  Rational B-spline surface                      217       217
+142  Curve on a parametric surface                   68        68
+144  Trimmed parametric surface                      67        67
+314  Color definition                                15        15
+406  Property                                        58        58
+_________________________________________________________________
+
+
+=================================================================
+Result Summary
+=================================================================
+SolidWorks Feature Type                Count
+-----------------------                -----
+Solid feature(s)                       24
+Surface feature(s)                     1
+Curve/Sketch feature(s)                0
+--------------------------------------------
+Start time: Friday, April 30, 2010 15:24:35
+Finish time: Friday, April 30, 2010 15:24:38
+Processing time: 0 days, 00 hours, 00 mins, 03 secs
