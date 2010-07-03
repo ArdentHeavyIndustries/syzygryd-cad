@@ -7,6 +7,7 @@
 
 import rhinoscriptsyntax as rs
 from System.Drawing import Color
+import re
 
 def labelObject(color):
 
@@ -37,12 +38,19 @@ def labelObject(color):
 
     docName = rs.DocumentName()
     
-    text = rs.AddText("#" + color + " / " + docName.partition(".")[0], rs.CurveAreaCentroid(curves[0])[0], 1.0, "Helvetica")
+    p = re.compile('cube_(\d+)')
+    m = p.search(rs.DocumentName())
+    if(not m):
+        cubeNumber = 0
+    else:
+        cubeNumber = m.groups()[0]
+    
+    text = rs.AddText(str(int(cubeNumber)) + color, rs.CurveAreaCentroid(curves[0])[0], 1.0, "Helvetica")
 
     # this crap is all here for making the text centered instead of left-justified
     box = rs.BoundingBox(text)
     textPoint = rs.TextObjectPoint(text)
-    rs.TextObjectPoint(text, [textPoint[0] - int((box[1][0] - box[0][0])/2), textPoint[1], textPoint[2]])
+    rs.TextObjectPoint(text, [textPoint[0] - (box[1][0] - box[0][0])/2, textPoint[1] - (box[3][1] - box[0][1])/2, textPoint[2]])
 
     rs.ObjectLayer(text, "DISPLAY")
 
