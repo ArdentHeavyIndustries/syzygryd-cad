@@ -37,7 +37,7 @@ def labelObject(color):
 
     docName = rs.DocumentName()
     
-    text = rs.AddText(color + " / " + docName.partition(".")[0], rs.CurveAreaCentroid(curves[0])[0], 1.0, "Helvetica")
+    text = rs.AddText("#" + color + " / " + docName.partition(".")[0], rs.CurveAreaCentroid(curves[0])[0], 1.0, "Helvetica")
     box = rs.BoundingBox(text)
     textPoint = rs.TextObjectPoint(text)
     rs.TextObjectPoint(text, [textPoint[0] - int((box[1][0] - box[0][0])/2), textPoint[1], textPoint[2]])
