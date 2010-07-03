@@ -61,7 +61,7 @@ def layerSetup():
         rs.AddLayer("CUT", Color.Red)
     
     if(not rs.IsLayer("DISPLAY")):
-        rs.AddLayer("DISPLAY", Color.Blue)
+        rs.AddLayer("DISPLAY", Color.FromArgb(100, 149, 237))  #cornflower blue
 
     rs.CurrentLayer("CUT")
 
