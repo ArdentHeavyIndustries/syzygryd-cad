@@ -1,0 +1,85 @@
+#
+# A Python script for preparing cubes.
+# Please note that I don't actually know Python.
+#
+# Ian Baker <ian@sonic.net>
+# GPL'd.
+
+import rhinoscriptsyntax as rs
+from System.Drawing import Color
+
+def labelObject(color):
+
+    # R C
+    # Y G
+    # O B
+    
+    # fetch an object.
+    curves = rs.GetObjects("Select objects for " + color, rs.filter.curve)
+    if( curves == None):
+        return
+
+    if( len(curves) > 1 ):
+        rs.UnselectObjects(curves)
+        labelCurve = rs.JoinCurves(curves, delete_input=True)
+        if(len(labelCurve) > 1):
+            print "Created more than one object for " + color
+            return
+
+        if(not rs.IsCurveClosed(labelCurve[0])):
+            print "Created an open curve for " + color + ". Fix it and try again."
+            return
+
+        # now, we're working with just one curve.
+        curves = labelCurve
+
+    rs.ObjectLayer(curves[0], "CUT")
+
+    docName = rs.DocumentName()
+    
+    text = rs.AddText(color + " / " + docName.partition(".")[0], rs.CurveAreaCentroid(curves[0])[0], 1.0, "Helvetica")
+    box = rs.BoundingBox(text)
+    textPoint = rs.TextObjectPoint(text)
+    rs.TextObjectPoint(text, [textPoint[0] - int((box[1][0] - box[0][0])/2), textPoint[1], textPoint[2]])
+
+    rs.ObjectLayer(text, "DISPLAY")
+
+    
+def layerSetup():
+    # create layers we need, set colors.
+    if(not rs.IsLayer("CUT")):
+        rs.AddLayer("CUT", Color.Red)
+    
+    if(not rs.IsLayer("DISPLAY")):
+        rs.AddLayer("DISPLAY", Color.Blue)
+
+    rs.CurrentLayer("CUT")
+
+def deleteRemainingStuff():
+    # get all the objects that aren't on a special layer
+    objects = rs.AllObjects()
+    for object in objects:
+        objLayer = rs.ObjectLayer(object)
+        if(not (objLayer == "CUT" or objLayer == "DISPLAY")):
+            rs.DeleteObject(object)
+    
+
+    # delete all layers that aren't useful here.
+    layers = rs.LayerNames()
+    if(layers != None):
+        for layer in layers:
+            if(layer != "CUT" and layer != "DISPLAY"):
+                rs.DeleteLayer(layer)
+
+
+if( __name__ == '__main__' ):
+    layerSetup()
+    # Call the function defined above
+    labelObject("R")
+    labelObject("C")
+    labelObject("Y")
+    labelObject("G")
+    labelObject("O")
+    labelObject("B")
+
+    deleteRemainingStuff()
